@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ChallengeProvider()),
       ],
       child: MaterialApp(
-        title: '리워드 게임 리뷰',
+        title: '챌린지 리워드',
         theme: AppTheme.lightTheme,
         debugShowCheckedModeBanner: false,
         home: const SplashScreen(),

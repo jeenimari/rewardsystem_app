@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rewardsystem/providers/auth_provider.dart';
 import '../../providers/challenge_provider.dart';
 import '../../models/challenge.dart';
 import '../../widgets/loading_indicator.dart';
 import 'challenge_detail_screen.dart';
+import 'challenge_register_screen.dart'; // 챌린지 등록 화면 import (아직 생성하지 않은 파일)
 
 class ChallengeListScreen extends StatefulWidget {
   const ChallengeListScreen({super.key});
@@ -20,7 +22,10 @@ class _ChallengeListScreenState extends State<ChallengeListScreen>
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
-    _loadData();
+    // 지연 추가하여 화면이 완전히 로드된 후 데이터 로드
+    Future.delayed(Duration.zero, () {
+      _loadData();
+    });
   }
 
   @override
@@ -38,10 +43,30 @@ class _ChallengeListScreenState extends State<ChallengeListScreen>
   @override
   Widget build(BuildContext context) {
     final challengeProvider = Provider.of<ChallengeProvider>(context);
+    final authProvider = Provider.of<AuthProvider>(context); // AuthProvider 추가
+
+    // 사용자가 관리자인지 확인 (role 필드 사용)
+    final isAdmin = authProvider.user?.role == 'ADMIN';
 
     return Scaffold(
         appBar: AppBar(
           title: const Text('챌린지'),
+           actions: [
+          //관리자인 경우에만 챌린지 등록 버튼 표시
+           if (isAdmin)
+             IconButton(
+               icon: const Icon(Icons.add),
+               tooltip: '챌린지 등록',
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const ChallengeRegisterScreen(),
+                     ),
+                   ).then((_) => _loadData()); // 등록 후 데이터 새로고침
+                 },
+               ),
+           ],
+
           bottom: TabBar(
             controller: _tabController,
             tabs: const [

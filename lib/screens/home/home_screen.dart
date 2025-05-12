@@ -58,23 +58,23 @@ class _HomeScreenState extends State<HomeScreen> {
             _selectedIndex = index;
           });
         },
-        type: BottomNavigationBar.fixed,
+        type: BottomNavigationBarType.fixed,
         selectedItemColor: Theme.of(context).colorScheme.primary,
         unselectedItemColor: Colors.grey,
         items: const [
-          BottomNavigationBar.item(
+          BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: '홈',
           ),
-          BottomNavigationBar.item(
+          BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: '검색',
           ),
-          BottomNavigationBar.item(
+          BottomNavigationBarItem(
             icon: Icon(Icons.star),
             label: '챌린지',
           ),
-          BottomNavigationBar.item(
+          BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: '프로필',
           ),

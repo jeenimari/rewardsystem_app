@@ -238,7 +238,6 @@ class _ChallengeDetailScreenState extends State<ChallengeDetailScreen> {
                     ],
                   ),
                 ),
-
                 // 챌린지 유형에 따라 다른 안내 제공
                 const SizedBox(height: 16),
                 Container(
@@ -273,12 +272,14 @@ class _ChallengeDetailScreenState extends State<ChallengeDetailScreen> {
                 ),
               ],
             )
-                : CustomButton(
+            : CustomButton(
               text: '챌린지 참여하기',
               icon: Icons.star,
               backgroundColor: Theme.of(context).colorScheme.secondary,
               onPressed: challenge.status == 'ACTIVE'
-                  ? _participateChallenge
+                  ? () {
+                _participateChallenge();
+              }
                   : null,
               isLoading: _isLoading,
             ),

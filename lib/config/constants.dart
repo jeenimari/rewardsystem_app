@@ -1,5 +1,5 @@
 class ApiConstants {
-  static const String baseUrl = 'http://10.0.2.2:8080'; // Android Emulator에서 localhost:8080에 접근하기 위한 IP
+  static const String baseUrl = 'http://localhost:8080'; // Android Emulator에서 localhost:8080에 접근하기 위한 IP
 
   // API 엔드포인트
   static const String login = '/user/login';

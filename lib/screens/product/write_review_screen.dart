@@ -7,6 +7,7 @@ import '../../models/review.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/loading_indicator.dart';
+import '../../providers/auth_provider.dart';
 
 class WriteReviewScreen extends StatefulWidget {
   final int productId;
