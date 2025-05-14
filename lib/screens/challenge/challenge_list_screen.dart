@@ -21,9 +21,10 @@ class _ChallengeListScreenState extends State<ChallengeListScreen>
   @override
   void initState() {
     super.initState();
+
     _tabController = TabController(length: 2, vsync: this);
     // 지연 추가하여 화면이 완전히 로드된 후 데이터 로드
-    Future.delayed(Duration.zero, () {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       _loadData();
     });
   }

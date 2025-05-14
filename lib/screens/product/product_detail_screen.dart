@@ -22,7 +22,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_){
     _loadData();
+    });
   }
 
   Future<void> _loadData() async {

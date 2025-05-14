@@ -9,10 +9,10 @@ class CrawlerService {
   final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
 
   // 쿠팡 상품 크롤링
-  Future<List<Product>> crawlCoupangProducts(String keyword, int page) async {
+  Future<List<Product>> crawlCoupangProducts(String keyword, int? page) async {
     try {
       final response = await http.get(
-        Uri.parse('${ApiConstants.baseUrl}${ApiConstants.crawlerCoupang}?keyword=$keyword&page=$page'),
+        Uri.parse('${ApiConstants.baseUrl}${ApiConstants.crawlerCoupang}?keyword=$keyword&page=${page??1}'),
       );
 
       if (response.statusCode == 200) {
@@ -28,10 +28,10 @@ class CrawlerService {
   }
 
   // 네이버 상품 크롤링
-  Future<List<Product>> crawlNaverProducts(String keyword, int page) async {
+  Future<List<Product>> crawlNaverProducts(String keyword, int? page) async {
     try {
       final response = await http.get(
-        Uri.parse('${ApiConstants.baseUrl}${ApiConstants.crawlerNaver}?keyword=$keyword&page=$page'),
+        Uri.parse('${ApiConstants.baseUrl}${ApiConstants.crawlerNaver}?keyword=$keyword&page=${page??1}'),
       );
 
       if (response.statusCode == 200) {
@@ -47,10 +47,10 @@ class CrawlerService {
   }
 
   // G마켓 상품 크롤링
-  Future<List<Product>> crawlGmarketProducts(String keyword, int page) async {
+  Future<List<Product>> crawlGmarketProducts(String keyword, int? page) async {
     try {
       final response = await http.get(
-        Uri.parse('${ApiConstants.baseUrl}${ApiConstants.crawlerGmarket}?keyword=$keyword&page=$page'),
+        Uri.parse('${ApiConstants.baseUrl}${ApiConstants.crawlerGmarket}?keyword=$keyword&page=${page??1}'),
       );
 
       if (response.statusCode == 200) {

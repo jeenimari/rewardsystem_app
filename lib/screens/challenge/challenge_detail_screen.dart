@@ -20,7 +20,9 @@ class _ChallengeDetailScreenState extends State<ChallengeDetailScreen> {
   @override
   void initState() {
     super.initState();
-    _loadChallengeDetail();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _loadChallengeDetail();
+    });
   }
 
   Future<void> _loadChallengeDetail() async {
