@@ -23,6 +23,13 @@ class ApiConstants {
   static const String challengeDetail = '/challenge/detailcheck';
   static const String challengeParticipate = '/challenge/participate';
   static const String myChallenges = '/challenge/my';
+  static const String challengeRegister = '/challenge/register';
+
+
+  static const String crawlerCoupang = '/crawler/coupang';
+  static const String crawlerNaver = '/crawler/naver';
+  static const String crawlerGmarket = '/crawler/gmarket';
+  static const String crawlerSearch = '/crawler/search';
 }
 
 class AppConstants {

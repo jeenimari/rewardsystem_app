@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../../providers/product_provider.dart';
 import '../../providers/review_provider.dart';
@@ -8,6 +7,7 @@ import '../../models/review.dart';
 import '../../widgets/loading_indicator.dart';
 import '../../widgets/review_card.dart';
 import 'write_review_screen.dart';
+import '../../helpers/url_helper.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   final int productId;
@@ -158,16 +158,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   backgroundColor: Theme.of(context).colorScheme.secondary,
                 ),
                 onPressed: () async {
-                  final url = Uri.parse(product.productUrl);
-                  if (await canLaunchUrl(url)) {
-                    await launchUrl(url);
-                  } else {
-                    if (context.mounted) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('URL을 열 수 없습니다')),
-                      );
-                    }
-                  }
+                  UrlHelper.openUrl(context, product.productUrl);
                 },
                 child: const Text('구매하기'),
               ),

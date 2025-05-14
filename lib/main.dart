@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rewardsystem/providers/crawler_provider.dart';
 import 'config/theme.dart';
 import 'providers/auth_provider.dart';
 import 'providers/product_provider.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ProductProvider()),
         ChangeNotifierProvider(create: (_) => ReviewProvider()),
         ChangeNotifierProvider(create: (_) => ChallengeProvider()),
+        ChangeNotifierProvider(create: (_) => CrawlerProvider()),
       ],
       child: MaterialApp(
         title: '챌린지 리워드',

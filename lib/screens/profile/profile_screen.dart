@@ -8,6 +8,7 @@ import '../../widgets/review_card.dart';
 import '../auth/login_screen.dart';
 import 'edit_profile_screen.dart';
 import '../product/write_review_screen.dart';
+import '../admin/crawler_management_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -205,6 +206,81 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
+
+              // 여기에 관리자 옵션 추가 (역할에 따라 표시)
+              if (user.role == 'ADMIN') ...[
+                const SizedBox(height: 24),
+                Text(
+                  '관리자 기능',
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Card(
+                  elevation: 2,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        leading: Icon(
+                          Icons.web,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                        title: const Text('외부 사이트 크롤링 관리'),
+                        subtitle: const Text('쿠팡, 네이버, G마켓 등의 제품 검색 및 등록'),
+                        trailing: const Icon(Icons.chevron_right),
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => const CrawlerManagementScreen(),
+                            ),
+                          );
+                        },
+                      ),
+                      const Divider(height: 1),
+                      ListTile(
+                        leading: Icon(
+                          Icons.star_border,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                        title: const Text('챌린지 관리'),
+                        subtitle: const Text('새로운 챌린지 생성 및 관리'),
+                        trailing: const Icon(Icons.chevron_right),
+                        onTap: () {
+                          // 챌린지 관리 화면으로 이동
+                          // Navigator.of(context).push(
+                          //   MaterialPageRoute(
+                          //     builder: (_) => const ChallengeManagementScreen(),
+                          //   ),
+                          // );
+                        },
+                      ),
+                      const Divider(height: 1),
+                      ListTile(
+                        leading: Icon(
+                          Icons.people_outline,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                        title: const Text('사용자 관리'),
+                        subtitle: const Text('사용자 목록 및 권한 관리'),
+                        trailing: const Icon(Icons.chevron_right),
+                        onTap: () {
+                          // 사용자 관리 화면으로 이동
+                          // Navigator.of(context).push(
+                          //   MaterialPageRoute(
+                          //     builder: (_) => const UserManagementScreen(),
+                          //   ),
+                          // );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+
               const SizedBox(height: 24),
 
               // 내 리뷰 섹션

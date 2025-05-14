@@ -3,17 +3,32 @@ import 'package:shimmer/shimmer.dart';
 
 class LoadingIndicator extends StatelessWidget {
   final bool useShimmer;
+  final String? message;
 
   const LoadingIndicator({
     super.key,
     this.useShimmer = true,
+    this.message,
   });
 
   @override
   Widget build(BuildContext context) {
     if (!useShimmer) {
-      return const Center(
-        child: CircularProgressIndicator(),
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const CircularProgressIndicator(),
+            if (message != null) ...[
+              const SizedBox(height: 16),
+              Text(
+                message!,
+                style: Theme.of(context).textTheme.bodyMedium,
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ],
+        ),
       );
     }
 
