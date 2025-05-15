@@ -34,7 +34,7 @@ class Product {
       id: json['id']??0,
       name: json['name']??'a',
       description: json['description']??'a',
-      imageUrl: json['imageUrl']??'a',
+      imageUrl: json['imageUrl'],
       productUrl: json['productUrl']??'a',
       vendor: json['vendor']??'a',
       price: json['price']??'a',
