@@ -7,6 +7,7 @@ import 'providers/product_provider.dart';
 import 'providers/review_provider.dart';
 import 'providers/challenge_provider.dart';
 import 'screens/splash_screen.dart';
+import 'providers/small_shop_provider.dart';  // 추가
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +24,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ProductProvider()),
         ChangeNotifierProvider(create: (_) => ReviewProvider()),
         ChangeNotifierProvider(create: (_) => ChallengeProvider()),
-        ChangeNotifierProvider(create: (_) => CrawlerProvider()),
+        ChangeNotifierProvider(create: (_) => SmallShopProvider()),  // 추가
+
+        // ChangeNotifierProvider(create: (_) => CrawlerProvider()),
       ],
       child: MaterialApp(
         title: '챌린지 리워드',

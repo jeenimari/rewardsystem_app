@@ -31,17 +31,17 @@ class Product {
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
-      id: json['id'],
-      name: json['name'],
-      description: json['description'],
-      imageUrl: json['imageUrl'],
-      productUrl: json['productUrl'],
-      vendor: json['vendor'],
-      price: json['price'],
-      category: json['category'],
-      externalProductId: json['externalProductId'],
+      id: json['id']??0,
+      name: json['name']??'a',
+      description: json['description']??'a',
+      imageUrl: json['imageUrl']??'a',
+      productUrl: json['productUrl']??'a',
+      vendor: json['vendor']??'a',
+      price: json['price']??'a',
+      category: json['category']??'a',
+      externalProductId: json['externalProductId']??'a',
       viewCount: json['viewCount'] ?? 0,
-      registeredBy: json['registeredBy'],
+      registeredBy: json['registeredBy']??'a',
       averageRating: json['averageRating'] != null
           ? double.parse(json['averageRating'].toString())
           : 0.0,

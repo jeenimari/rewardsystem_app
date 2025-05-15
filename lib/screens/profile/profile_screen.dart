@@ -9,6 +9,7 @@ import '../auth/login_screen.dart';
 import 'edit_profile_screen.dart';
 import '../product/write_review_screen.dart';
 import '../admin/crawler_management_screen.dart';
+import '../admin/small_shop_management_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -231,13 +232,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Icons.web,
                           color: Theme.of(context).colorScheme.primary,
                         ),
-                        title: const Text('외부 사이트 크롤링 관리'),
-                        subtitle: const Text('쿠팡, 네이버, G마켓 등의 제품 검색 및 등록'),
+                        title: const Text('소규모 쇼핑몰 관리'),
+                        subtitle: const Text('육식토끼, 더베네푸드 등의 제품 검색 및 등록'),
                         trailing: const Icon(Icons.chevron_right),
                         onTap: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (_) => const CrawlerManagementScreen(),
+                              builder: (_) => const SmallShopManagementScreen(),
                             ),
                           );
                         },

@@ -26,10 +26,15 @@ class ApiConstants {
   static const String challengeRegister = '/challenge/register';
 
 
-  static const String crawlerCoupang = '/crawler/coupang';
-  static const String crawlerNaver = '/crawler/naver';
-  static const String crawlerGmarket = '/crawler/gmarket';
+  // static const String crawlerCoupang = '/crawler/coupang';
+  // static const String crawlerNaver = '/crawler/naver';
+  // static const String crawlerGmarket = '/crawler/gmarket';
   static const String crawlerSearch = '/crawler/search';
+  // 추가할 엔드포인트
+  static const String smallShop6ki = '/smallshop/6ki/products';
+  static const String smallShop6kiDetail = '/smallshop/6ki/product/detail';
+  static const String smallShopBenefood = '/smallshop/benefood/products';
+  static const String smallShopBenefoodDetail = '/smallshop/benefood/product/detail';
 }
 
 class AppConstants {
